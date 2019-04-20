@@ -11,7 +11,7 @@ public class Coupon100Get10Percent implements Coupon {
 		
 		boolean over99 = false;
 		
-		if(items.getAmountOfItemsPurchased() >= 100)
+		if(items.getAmountOfItemsPurchased() >= 2)
 			over99 = true;
 		
 		return over99;

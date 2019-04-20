@@ -1,6 +1,7 @@
 package bestbuy;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class PurchasedItems {
 	private ArrayList<StoreItem> items;
@@ -38,4 +39,6 @@ public class PurchasedItems {
 	}
 	
 	public int getAmountOfItemsPurchased () {return this.items.size();}
+	
+	public Iterator<StoreItem> getPurchasedItemIterator() { return items.iterator();}
 }

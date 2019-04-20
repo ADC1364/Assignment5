@@ -1,11 +1,22 @@
 package bestbuy;
 
+import java.util.Date;
+
 public class Client {
 
 	public static void main(String[] args)
 	{
-	// 1. Creates a Data object (either from Java API or date entered by user)
-	// 2. Creates a PurchasedItems object (selections made by user)
+	
+		Date todaysDate = new Date();
+		
+		PurchasedItems itemsPurchased = new PurchasedItems();
+		
+		// hard coded some item purchases
+		itemsPurchased.addItem(new StoreItem("1406", "TV", 300));
+		itemsPurchased.addItem(new StoreItem("1209", "watch", 100));
+		itemsPurchased.addItem(new StoreItem("1308", "game", 60));
+		itemsPurchased.addItem(new StoreItem("1105", "movie", 20));
+		
 	// 3. Constructs a ReceiptFactory object.
 	// 3. Prompts user for items to purchase, storing each in PurchasedItems.
 	// 4. Calls the getReceipt method of the factory to obtain constructed receipt.
@@ -23,7 +34,7 @@ public class Client {
 		
 	ReceiptFactory factory = new ReceiptFactory(); 
 	
-	Receipt = factory.getReceipt(items, date); 
+	Receipt receipt = factory.getReceipt(itemsPurchased, todaysDate); 
 	
 	receipt.prtReceipt();
 	}
