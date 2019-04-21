@@ -12,34 +12,27 @@ import java.io.IOException;
 public class ReceiptFactory {
 	StoreHeader store_header; // contains street_addr, zip_code, state_code, phone num, store num 
 	private TaxComputationMethod[] taxComputationsObjs; // tax computation objs (for each state) 
-	private AddOn[] addOns; // secondary heading, rebate and coupon add-ons (hardcoded here)
-	
-	// I added this to store the chosen tax computation object (based on the config file) in the Receipt factory object
-	TaxComputationMethod choosenStateTax;
-	
-	
-	
-	
+	private AddOn[] addOns ; // secondary heading, rebate and coupon add-ons (hardcoded here)
 	
 	
 	public ReceiptFactory() { // constructor
 		
-		// state tax computation objects
-		MDTaxComputation mdTax = new MDTaxComputation ();
-		
-		// AddOns
-		SecondaryHeading holidayGreeting = new HolidayGreeting();
-		Rebate rebate1406 = new Rebate1406();
-		Coupon coupon100 = new Coupon100Get10Percent();
-		
-		
-		taxComputationsObjs = new TaxComputationMethod[50];
-		taxComputationsObjs [0] = mdTax;
-		
-		addOns = new AddOn[3]; //I hard coded 3
-		addOns[0] = holidayGreeting;
-		addOns[1] = rebate1406;
-		addOns[2] = coupon100;
+				// state tax computation objects
+				MDTaxComputation mdTax = new MDTaxComputation ();
+				
+				// AddOns
+				SecondaryHeading holidayGreeting = new HolidayGreeting();
+				Rebate rebate1406 = new Rebate1406();
+				Coupon coupon100 = new Coupon100Get10Percent();
+				
+				
+				taxComputationsObjs = new TaxComputationMethod[50];
+				taxComputationsObjs [0] = mdTax;
+				
+				addOns = new AddOn[3]; //I hard coded 3
+				addOns[0] = holidayGreeting;
+				addOns[1] = rebate1406;
+				addOns[2] = coupon100;
 		
 		ArrayList <String> config = new ArrayList <String>();
 		
@@ -58,8 +51,7 @@ public class ReceiptFactory {
         
         store_header = new StoreHeader(config.get(0), config.get(1),config.get(2), config.get(3),config.get(4));
         
-        if(store_header.getStateCode().equals("MD"))
-        	choosenStateTax = taxComputationsObjs[0]; 
+        
 		
 	}
 	
@@ -71,7 +63,8 @@ public class ReceiptFactory {
 		
 		((BasicReceipt) newReceipt).setStoreHeader(this.store_header);
 		
-		((BasicReceipt) newReceipt).setTaxComputationMethod(choosenStateTax);
+		if(store_header.getStateCode().equals("MD"))
+			((BasicReceipt) newReceipt).setTaxComputationMethod(taxComputationsObjs[0]);
 		
 		
 		

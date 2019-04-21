@@ -46,6 +46,10 @@ public class BasicReceipt implements Receipt {
 		
 		double tax = tc.computeTax(items, Date);
 		
+		System.out.println("The tax on these items is: $ " + tax );
+		
+		System.out.println("The total with tax included is: $ " + (tax + items.getTotalCost()));
+		
 		
 	}
 }
