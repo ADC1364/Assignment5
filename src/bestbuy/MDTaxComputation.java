@@ -54,9 +54,9 @@ public class MDTaxComputation extends TaxComputationMethod {
 			return true;
 		
 		
-		System.out.println(after);
-		System.out.println(current);
-		System.out.println(before);
+		//System.out.println(after);
+		//System.out.println(current);
+		//System.out.println(before);
 		
 		
 		
