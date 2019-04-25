@@ -10,6 +10,8 @@ public class PurchasedItems {
 
 	public void addItem(StoreItem item) { items.add(item); } 
 	
+	public StoreItem getItem (int index) { return items.get(index); }
+	
 	public double getTotalCost() {
 		
 		int sum = 0;

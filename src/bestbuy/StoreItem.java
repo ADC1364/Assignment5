@@ -22,4 +22,6 @@ public class StoreItem {
 	
 	public double getPrice() { return this.itemPrice; }
 	public void setItemPrice(double newPrice) { this.itemPrice = newPrice; }
+	
+	public String toString() { return "Item code is: " + this.itemCode + " Item description: " + this.itemDescription + " $ " + this.itemPrice; }
 }

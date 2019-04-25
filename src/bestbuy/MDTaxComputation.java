@@ -29,14 +29,14 @@ public class MDTaxComputation extends TaxComputationMethod {
 		SimpleDateFormat sdf = new SimpleDateFormat("MM-dd"); //For declaring values in new date objects. use same date format when creating dates
 		Date after = null;
 		try {
-			after = sdf.parse("02-19");
+			after = sdf.parse("04-20");
 		} catch (ParseException e2) {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 		Date before = null;
 		try {
-			before = sdf.parse("02-21");
+			before = sdf.parse("04-26");
 		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

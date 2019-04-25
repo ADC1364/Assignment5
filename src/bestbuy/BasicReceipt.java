@@ -36,7 +36,7 @@ public class BasicReceipt implements Receipt {
 		while(itr.hasNext()) {
 			
 			StoreItem item = (StoreItem) itr.next();
-			System.out.println(item.getItemCode() + "   " + item.getItemDescription() + "   $ " + item.getPrice());
+			System.out.println(item.toString());
 			
 		}
 		
@@ -44,7 +44,14 @@ public class BasicReceipt implements Receipt {
 		
 		// I am having trouble with this line it causes a null pointer exception
 		
-		double tax = tc.computeTax(items, Date);
+		double tax = 0;
+		
+		try {
+		 tax = tc.computeTax(items, Date);
+		}
+		catch(NullPointerException e) {
+			
+		}
 		
 		System.out.println("The tax on these items is: $ " + tax );
 		
