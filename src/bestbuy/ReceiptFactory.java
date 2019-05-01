@@ -37,9 +37,9 @@ public class ReceiptFactory {
 				taxComputationsObjs [2] = delawareTax;
 				
 				addOns = new AddOn[3]; //I hard coded 3
-				addOns[0] = summerGreeting;
-				addOns[1] = rebate1406;
-				addOns[2] = coupon100;
+				//addOns[0] = summerGreeting;
+				//addOns[1] = rebate1406;
+				//addOns[2] = coupon100;
 		
 		ArrayList <String> config = new ArrayList <String>();
 		
@@ -81,6 +81,7 @@ public class ReceiptFactory {
 		
 		for(int i = 0; i< addOns.length; i++) {
 			
+			try {
 			if(addOns[i].applies(items)) {
 				
 				if(addOns[i] instanceof SecondaryHeading)
@@ -94,7 +95,8 @@ public class ReceiptFactory {
 					
 				
 			}
-			
+			}
+			catch(NullPointerException e) {}
 		}
 		
 		
