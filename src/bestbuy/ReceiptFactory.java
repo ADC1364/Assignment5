@@ -19,18 +19,25 @@ public class ReceiptFactory {
 		
 				// state tax computation objects
 				MDTaxComputation mdTax = new MDTaxComputation ();
+				CaliTaxComputation caliTax = new CaliTaxComputation ();
+				DelawareTaxComputation delawareTax = new DelawareTaxComputation ();
 				
-				// AddOns
+				// AddOns, can choose between summer of holiday greeting for secondary header
 				SecondaryHeading holidayGreeting = new HolidayGreeting();
+				SecondaryHeading summerGreeting = new SummerGreeting();
+				
+				
 				Rebate rebate1406 = new Rebate1406();
 				Coupon coupon100 = new Coupon100Get10Percent();
 				
 				
 				taxComputationsObjs = new TaxComputationMethod[50];
 				taxComputationsObjs [0] = mdTax;
+				taxComputationsObjs [1] = caliTax;
+				taxComputationsObjs [2] = delawareTax;
 				
 				addOns = new AddOn[3]; //I hard coded 3
-				addOns[0] = holidayGreeting;
+				addOns[0] = summerGreeting;
 				addOns[1] = rebate1406;
 				addOns[2] = coupon100;
 		
@@ -65,6 +72,10 @@ public class ReceiptFactory {
 		
 		if(store_header.getStateCode().equals("MD"))
 			((BasicReceipt) newReceipt).setTaxComputationMethod(taxComputationsObjs[0]);
+		else if(store_header.getStateCode().equals("CA"))
+			((BasicReceipt) newReceipt).setTaxComputationMethod(taxComputationsObjs[1]);
+		else if(store_header.getStateCode().equals("DE"))
+			((BasicReceipt) newReceipt).setTaxComputationMethod(taxComputationsObjs[2]);
 		
 		
 		

@@ -55,22 +55,6 @@ public class Client {
 
 		
 		
-		
-	// 4. Calls the getReceipt method of the factory to obtain constructed receipt.
-	// 5. Prints receipt by call to method prtReceipt.
-		
-		
-	// get receipt date
-	// (prompt user for current date)
-		
-		
-	// display all available store items to user (to be implemented)
-		
-	// get all user selections (to be implemented)
-		
-		
-	 
-	
 	Receipt receipt = factory.getReceipt(itemsPurchased, todaysDate); 
 	
 	receipt.prtReceipt();
